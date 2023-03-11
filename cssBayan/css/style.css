@@ -55,6 +55,21 @@ body {
   display: none;
 }
 
+.accordion-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion-block-icon {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  transition: rotate 0.5s;
+}
+
 .accordion-image {
   display: block;
   width: 0%;
@@ -63,12 +78,33 @@ body {
   transition: width 0.5s ease-in-out;
 }
 
-.accordion-input:checked ~ .accordion-image,
-.accordion-block:hover > .accordion-input:not(:checked) ~ .accordion-image {
+.accordion-input:checked ~ .accordion-label > .accordion-image,
+.accordion-block:hover
+  > .accordion-input:not(:checked)
+  ~ .accordion-label
+  > .accordion-image {
   width: 50%;
   transition: width 0.5s ease-in-out;
 }
 
 .accordion-input:checked ~ .accordion-label {
   color: black;
+}
+
+.accordion-container:hover .accordion-block-icon {
+  background-image: url(../img/plus.svg);
+  opacity: 1;
+}
+
+.accordion-container:hover
+  .accordion-input:checked
+  ~ .accordion-label
+  .accordion-block-icon,
+.accordion-block:hover .accordion-block-icon {
+  background-image: url(../img/close.svg);
+  opacity: 1;
+}
+
+.accordion-block:active {
+  opacity: 0.7;
 }
