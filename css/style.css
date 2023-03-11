@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  line-height: 35px;
+  font-weight: 400;
+  color: #000;
+}
+
+.container {
+  width: 600px;
+  margin: 10px auto 30px auto;
+}
+
+.accordion-container {
+  color: #666;
+}
+
+.accordion-container:hover {
+  color: black;
+}
+
+.accordion-header {
+  border-bottom: 1px solid #80808033;
+}
+
+.accordion-block {
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.accordion-block:not(:last-child) {
+  border-bottom: 1px solid #80808033;
+}
+
+.accordion-header {
+  padding-bottom: 20px;
+}
+
+.accordion-label {
+  display: block;
+  cursor: pointer;
+}
+
+.accordion-input {
+  display: none;
+}
+
+.accordion-label:hover:after,
+.accordion-input:checked + .accordion-label:hover:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 13px;
+  top: 7px;
+  background-color: red;
+}
+
+.accordion-input:checked + .accordion-label:hover:after {
+  background-color: blue;
+}
+
+.accordion-image {
+  width: 0%;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.5s ease-in-out;
+}
+
+.accordion-input:checked ~ .accordion-image {
+  width: 50%;
+  transition: width 0.5s ease-in-out;
+}
