@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -16,11 +20,13 @@ body {
 }
 
 .accordion-container {
-  color: #666;
+  color: #4186db;
+  transition: color 0.8s ease-in-out;
 }
 
 .accordion-container:hover {
   color: black;
+  transition: color 0.8s ease-in-out;
 }
 
 .accordion-header {
@@ -30,7 +36,6 @@ body {
 .accordion-block {
   cursor: pointer;
   margin-bottom: 20px;
-  position: relative;
 }
 
 .accordion-block:not(:last-child) {
@@ -50,29 +55,20 @@ body {
   display: none;
 }
 
-.accordion-label:hover:after,
-.accordion-input:checked + .accordion-label:hover:after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  right: 13px;
-  top: 7px;
-  background-color: red;
-}
-
-.accordion-input:checked + .accordion-label:hover:after {
-  background-color: blue;
-}
-
 .accordion-image {
+  display: block;
   width: 0%;
+  margin: 10px auto;
   overflow: hidden;
-  position: relative;
   transition: width 0.5s ease-in-out;
 }
 
-.accordion-input:checked ~ .accordion-image {
+.accordion-input:checked ~ .accordion-image,
+.accordion-block:hover > .accordion-input:not(:checked) ~ .accordion-image {
   width: 50%;
   transition: width 0.5s ease-in-out;
+}
+
+.accordion-input:checked ~ .accordion-label {
+  color: black;
 }
