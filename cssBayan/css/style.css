@@ -24,11 +24,6 @@ body {
   transition: color 0.8s ease-in-out;
 }
 
-.accordion-container:hover {
-  color: black;
-  transition: color 0.8s ease-in-out;
-}
-
 .accordion-header {
   border-bottom: 0.03rem solid #80808033;
   padding-bottom: 1rem;
@@ -80,31 +75,13 @@ body {
   transition: width 0.5s ease-in-out;
 }
 
-.accordion-input:checked ~ .accordion-label > .accordion-image,
-.accordion-block:hover
-  > .accordion-input:not(:checked)
-  ~ .accordion-label
-  > .accordion-image {
+.accordion-input:checked ~ .accordion-label > .accordion-image {
   width: 50%;
   transition: width 0.5s ease-in-out;
 }
 
 .accordion-input:checked ~ .accordion-label {
   color: black;
-}
-
-.accordion-container:hover .accordion-block-icon {
-  background-image: url(../img/plus.svg);
-  opacity: 1;
-}
-
-.accordion-container:hover
-  .accordion-input:checked
-  ~ .accordion-label
-  .accordion-block-icon,
-.accordion-block:hover .accordion-block-icon {
-  background-image: url(../img/close.svg);
-  opacity: 1;
 }
 
 .accordion-block:active {
@@ -115,7 +92,65 @@ body {
   color: #4186db;
 }
 
-.accordion-block:active .accordion-block-icon,
+@media (hover: hover) {
+  .accordion-container:hover {
+    color: black;
+    transition: color 0.8s ease-in-out;
+  }
+
+  .accordion-block:hover
+    > .accordion-input:not(:checked)
+    ~ .accordion-label
+    > .accordion-image {
+    width: 50%;
+    transition: width 0.5s ease-in-out;
+  }
+
+  .accordion-container:hover .accordion-block-icon {
+    background-image: url(../img/plus.svg);
+    opacity: 1;
+  }
+
+  .accordion-container:hover
+    .accordion-input:checked
+    ~ .accordion-label
+    .accordion-block-icon {
+    transition: opacity 0.5s;
+    background-image: url(../img/close.svg);
+  }
+
+  .accordion-block:hover
+    .accordion-input:not(:checked)
+    ~ .accordion-label
+    .accordion-block-icon {
+    transform: rotate(45deg);
+    opacity: 1;
+    transition: 0.5s;
+  }
+
+  @media (max-width: 576px) {
+    .accordion-block:hover
+      > .accordion-input:not(:checked)
+      ~ .accordion-label
+      > .accordion-image {
+      width: 60%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .accordion-block:hover
+      > .accordion-input:not(:checked)
+      ~ .accordion-label
+      > .accordion-image {
+      width: 70%;
+    }
+  }
+}
+
+.accordion-block:active .accordion-block-icon {
+  background-image: url(../img/plus-active.svg);
+}
+
 .accordion-block:active
   .accordion-input:checked
   ~ .accordion-label
@@ -148,11 +183,7 @@ body {
     width: 80%;
   }
 
-  .accordion-input:checked ~ .accordion-label > .accordion-image,
-  .accordion-block:hover
-    > .accordion-input:not(:checked)
-    ~ .accordion-label
-    > .accordion-image {
+  .accordion-input:checked ~ .accordion-label > .accordion-image {
     width: 60%;
   }
 }
@@ -166,11 +197,7 @@ body {
     width: 90%;
   }
 
-  .accordion-input:checked ~ .accordion-label > .accordion-image,
-  .accordion-block:hover
-    > .accordion-input:not(:checked)
-    ~ .accordion-label
-    > .accordion-image {
+  .accordion-input:checked ~ .accordion-label > .accordion-image {
     width: 70%;
   }
 }
