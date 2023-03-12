@@ -8,15 +8,15 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
-  line-height: 35px;
+  font-size: 1.25rem;
+  line-height: 2rem;
   font-weight: 400;
   color: #000;
 }
 
 .container {
-  width: 600px;
-  margin: 10px auto 30px auto;
+  width: 45%;
+  margin: 0.6rem auto 2rem auto;
 }
 
 .accordion-container {
@@ -30,20 +30,22 @@ body {
 }
 
 .accordion-header {
-  border-bottom: 1px solid #80808033;
+  border-bottom: 0.03rem solid #80808033;
+  padding-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .accordion-block {
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 0.75rem;
 }
 
 .accordion-block:not(:last-child) {
-  border-bottom: 1px solid #80808033;
+  border-bottom: 0.03rem solid #80808033;
 }
 
 .accordion-header {
-  padding-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .accordion-label {
@@ -61,19 +63,19 @@ body {
 }
 
 .accordion-block-icon {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   background-color: transparent;
   background-position: center;
   background-size: cover;
   opacity: 0;
-  transition: rotate 0.5s;
+  transition: 0.5s;
 }
 
 .accordion-image {
   display: block;
   width: 0%;
-  margin: 10px auto;
+  margin: 0.625rem auto;
   overflow: hidden;
   transition: width 0.5s ease-in-out;
 }
@@ -119,4 +121,56 @@ body {
   ~ .accordion-label
   .accordion-block-icon {
   background-image: url(../img/close-active.svg);
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 55%;
+  }
+}
+
+@media (max-width: 840px) {
+  html {
+    font-size: 0.8em;
+  }
+
+  .container {
+    width: 65%;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 0.8em;
+  }
+
+  .container {
+    width: 80%;
+  }
+
+  .accordion-input:checked ~ .accordion-label > .accordion-image,
+  .accordion-block:hover
+    > .accordion-input:not(:checked)
+    ~ .accordion-label
+    > .accordion-image {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 0.7em;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .accordion-input:checked ~ .accordion-label > .accordion-image,
+  .accordion-block:hover
+    > .accordion-input:not(:checked)
+    ~ .accordion-label
+    > .accordion-image {
+    width: 70%;
+  }
 }
